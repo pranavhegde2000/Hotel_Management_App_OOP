@@ -28,7 +28,6 @@ class Hotel:
         else:
             return False
 
-
 class ReservationTicket:
     def __init__(self, customer_name, hotel_object):
         self.customer_name = customer_name
@@ -67,7 +66,6 @@ class SecureCreditCard(CreditCard):
         else:
             return False
 
-
 #Each method in a class should ideally have only one function, validate() will only validate credit cards
 print(df)
 hotel_ID = input("Enter the id of the hotel:")
@@ -77,7 +75,7 @@ if hotel.available():
     credit_card = SecureCreditCard(number = "1234567890123456") #SecureCreditCard class inherits all the methods from CreditCard() class i.e. __init__() and validate()
     #Skipping input steps for credit card details for simplicity
     if credit_card.validate(expiration="12/26", holder="JOHN SMITH", cvc="123"):
-        if credit_card.authenticate(given_password="mypass1"):
+        if credit_card.authenticate(given_password="mypass"):
             hotel.book()
             name = input("Enter your name: ")
             reservation_ticket = ReservationTicket(customer_name=name, hotel_object=hotel)
@@ -86,5 +84,6 @@ if hotel.available():
             print("Credit card authentication failed")
     else:
         print("There was a problem with your payment")
+
 else:
     print("Hotel is not free")
